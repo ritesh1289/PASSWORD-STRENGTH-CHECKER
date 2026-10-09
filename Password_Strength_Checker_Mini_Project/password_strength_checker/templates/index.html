@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An educational password strength checker and password security awareness tool.">
+  <title>Password Strength Checker | CyberSafe</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="CyberSafe home"><span class="brand-icon">盾</span> CyberSafe</a>
+    <span class="tag">CYBERSECURITY MINI PROJECT</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">PASSWORD SECURITY TOOL</p>
+      <h1>Build a stronger <span>password.</span></h1>
+      <p class="intro">Check common password-strength criteria and learn how to improve your password habits.</p>
+    </section>
+
+    <section class="checker card" aria-labelledby="checker-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">STRENGTH ANALYZER</p>
+          <h2 id="checker-title">Check your password</h2>
+        </div>
+        <span class="lock" aria-hidden="true">▣</span>
+      </div>
+
+      <label for="password">Sample password</label>
+      <div class="password-row">
+        <input id="password" type="password" autocomplete="off" spellcheck="false"
+               placeholder="Type a sample password" maxlength="1024" aria-describedby="privacy-note">
+        <button id="toggle-password" class="secondary-button" type="button">Show</button>
+      </div>
+      <p id="privacy-note" class="privacy">Privacy: this demo does not save or log your password. Use a made-up sample, not a real account password.</p>
+
+      <div class="meter-header">
+        <span>Estimated strength</span>
+        <strong id="strength-label" class="level neutral">Not checked</strong>
+      </div>
+      <div class="meter" role="progressbar" aria-label="Password strength" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="meter">
+        <span id="meter-fill"></span>
+      </div>
+      <p id="strength-message" class="message" aria-live="polite">Enter a sample password to begin.</p>
+
+      <h3 class="subheading">Security checklist</h3>
+      <ul id="checklist" class="checklist">
+        <li data-check="length"><span class="check-icon">○</span> At least 12 characters</li>
+        <li data-check="lowercase"><span class="check-icon">○</span> Lowercase letter (a–z)</li>
+        <li data-check="uppercase"><span class="check-icon">○</span> Uppercase letter (A–Z)</li>
+        <li data-check="number"><span class="check-icon">○</span> Number (0–9)</li>
+        <li data-check="special"><span class="check-icon">○</span> Special character (!, @, #...)</li>
+      </ul>
+
+      <div class="suggestions-box">
+        <h3 class="subheading">Suggestions</h3>
+        <ul id="suggestions"><li>Use a long, unique passphrase and avoid personal information.</li></ul>
+      </div>
+
+      <div class="button-row">
+        <button id="generate" class="primary-button" type="button">Generate strong sample</button>
+        <button id="clear" class="secondary-button" type="button">Clear</button>
+      </div>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section class="tips card">
+      <p class="eyebrow">STAY SAFER ONLINE</p>
+      <h2>Password safety tips</h2>
+      <div class="tips-grid">
+        <article><span class="tip-number">01</span><h3>Make it unique</h3><p>Use a different password for each account.</p></article>
+        <article><span class="tip-number">02</span><h3>Go longer</h3><p>Long, memorable passphrases are often a good choice.</p></article>
+        <article><span class="tip-number">03</span><h3>Use MFA</h3><p>Enable multi-factor authentication when available.</p></article>
+        <article><span class="tip-number">04</span><h3>Use a manager</h3><p>A reputable password manager can create and store unique passwords.</p></article>
+      </div>
+    </section>
+
+    <section class="disclaimer">
+      <strong>Educational estimate:</strong> this tool checks basic rules, not every possible weakness. A high score does not guarantee that a password is secure or has never been exposed.
+    </section>
+  </main>
+
+  <footer>CyberSafe · Student Cybersecurity Project · Runs locally on your computer</footer>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
